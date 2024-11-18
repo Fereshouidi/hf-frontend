@@ -1,0 +1,190 @@
+
+
+
+
+
+.setting-list .basisInvisible ul{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.setting-list .basisVisible ul{
+    visibility: visible;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+
+.basisVisible {
+    position: relative;
+    display: block;
+    background-color: transparent;
+    padding: 0;
+}
+.basisVisible:focus {
+    background-color: transparent;
+}
+
+.setting-list{
+    width: 100%;
+    margin-top: 10px;
+    padding: 0;
+    list-style-type: none;
+}
+.setting-list li i{
+    margin-right: 10px;
+}
+.setting-list li ul{
+    list-style-type: none;
+    background-color: transparent;
+}
+#profile-item{
+    margin-top: 10px;
+}
+.setting-list li:not(.sub-li){
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid var(--darkest-primary-color);
+    margin: 5px 0;
+    list-style-type: none;
+}
+
+.setting-list .basisVisible:not(.sub-li):hover{
+    background-color: transparent;
+    list-style-type: none;
+}
+.setting-list li span{
+    background-color: transparent;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: large;
+    font-weight: 700;
+}
+.setting-list .basisVisible span:hover{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.setting-list .basisVisible ul{
+    display: block;
+    background-color: transparent;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.setting-list .basisVisible ul:hover{
+    background-color: transparent;
+}
+.sub-li{
+    display: block;
+    background-color: transparent;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.sub-li-a{
+    display: block;
+    background-color: transparent;
+    list-style-type: none;
+    width: auto;
+    height: 100%;
+    padding: 7px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: black
+}
+.sub-li-a i{
+    margin-right: 10px;
+}
+.sub-li a:hover{
+    background-color: var(--primary-color);
+    text-decoration: none;
+    color: white;
+}
+.sub-li a:focus{
+    background-color: var(--primary-color);
+    text-decoration: none;
+    color: white;
+}
+
+.setting-list li span{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    display: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+.sub-li {
+    padding: 0;
+    /* background-color: red; */
+}
+.sub-li .phoProfile{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+.sub-li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.sub-li .removeSwitchAccount{
+    color: red;
+    position: absolute;
+    right: 5px;
+    padding: 7px;
+    border-radius: 10px;
+}
+.sub-li .removeSwitchAccount:hover{
+    color: white;
+    background-color: red;
+}
+
+
+.log-out--block-account---container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 25px 0;
+}
+
+.log-out, .block-account{
+    padding: 15px 25px;
+    border: 1px solid var(--darkest-primary-color);
+    width: 99%;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 5px 0;
+    /* margin-left: 50%;
+    transform: translateX(-50%); */
+}
+.log-out a, .block-account a{
+    color: red;
+    /* padding: 25px 25px; */
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.log-out a *, .block-account a *{
+    margin: 0 7px;
+}
+

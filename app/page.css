@@ -1,0 +1,39 @@
+.main{
+    overflow: hidden;
+}
+
+
+
+
+
+/* ul :not(.active-page ,.container,.nav-link):hover {
+    background-color: rgba(0, 255, 255, 0.205);
+} */
+
+
+
+
+ul *{
+    background-color: transparent;
+}
+ul * :hover{
+    background-color: transparent;
+}
+ul * :focus{
+    background-color: transparent;
+}
+ul * :native{
+    background-color: transparent;
+}
+li *{
+    background-color: transparent;
+}
+li * :hover{
+    background-color: transparent;
+}
+li * :focus{
+    background-color: transparent;
+}
+li * :native{
+    background-color: transparent;
+}

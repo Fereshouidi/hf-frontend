@@ -1,0 +1,111 @@
+.profilePeoplePage{
+    position: absolute;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: var(--header-height);
+    overflow: scroll;
+}
+.backIcon{
+    position: fixed;
+    z-index: 999;
+    top: calc(var(--header-height)-7px);
+    left: 0;
+    font-size: 20px;
+    width: auto;
+    padding: 7px 7px;
+    background-color: rgba(65, 65, 65, 0.664);
+    color: white;
+    margin: 5px;
+    border-radius: 50%;
+}
+.backIcon:hover{
+    color: rgb(94, 94, 94);
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+.dealingWithUser{
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dealingWithUser *{
+    margin: 0 5px;
+}
+
+.follow{
+    min-width: 100px;
+    min-height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: white;
+    background-color: var(--primary-color);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 255, 0.116); */
+    border: 1px solid var(--darkest-primary-color);
+    font-size: 13px;
+
+}
+.conversation{
+    min-width: 100px;
+    min-height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: white;
+    background-color: var(--primary-color);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 255, 0.116); */
+    border: 1px solid var(--darkest-primary-color);
+    text-decoration: none;
+    font-size: 13px;
+}
+.like{
+    min-width: 100px;
+    min-height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: white;
+    background-color: var(--primary-color);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 255, 0.116); */
+    border: 1px solid var(--darkest-primary-color);
+    font-size: 13px;
+
+}
+.likeClicked{
+    background-color: #0863b3;
+}
+.likedShape{
+    background-color: transparent;
+    color: var(--darkest-primary-color);
+}
+
+.acceptedShape{
+    background-color: transparent;
+    color: var(--darkest-primary-color);
+}
+.blockedShape{
+    background-color: transparent;
+    color: red;
+    border-color: red;
+}
+.pendingShape{
+    background-color: transparent;
+    color: var(--darkest-primary-color);
+    font-size: 10px;
+}
+.acceptedShape .fa-check{
+    font-size: 10px;
+    margin-left: 5px;
+}

@@ -1,0 +1,30 @@
+@media(max-width: 500px){
+
+    #main-section{
+        border-top: solid 5px rgb(218, 165, 20);
+    }
+
+}
+
+@media(max-height: 400px){
+
+    #main-section{
+        /* padding: 100px 0; */
+        position: relative;
+    }
+
+    .sign-in-page-active{
+        display: block;
+    }
+
+    .login-page-active{
+        display: block;
+    }
+    
+    .container-cart{
+        /* margin: 70px 0 70px 50%;
+        transform: translateX(-50%); */
+    }
+
+}
+

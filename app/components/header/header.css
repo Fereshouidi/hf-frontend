@@ -1,0 +1,143 @@
+header{
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    border-radius: 0;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+#logo img{
+    width: 50px;
+    height: 80%;
+}
+
+header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5%;
+
+}
+header .container #pageName{
+    font-size: 20px;
+    font-weight: 700;
+}
+#navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.active-page{
+    background-color: var(--primary-color); 
+    color: white;
+    transition: background-color 0.7s;
+}
+#navigation .nav-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+}
+/* #navigation .nav-item:hover{
+    background-color: var(--primary-color-hover);
+    cursor: pointer;
+} */
+#navigation .nav-item *{
+    margin: 0 5px;
+}
+#profile img{
+    width: 16px;
+    height: 16px;
+    margin-right: 0.2em;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 400px){
+
+    header .container{
+        width: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .itemName{
+        display: none;
+    }
+
+    .container{
+        position: relative;
+    }
+
+    #pageName{
+        display: none;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid black;
+    }
+
+    #navigation{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        /* margin: 0; */
+    }
+
+    #navigation .nav-item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex: 1;
+        width: auto;
+        height: 40px;
+        margin: 0;
+    }
+
+    #navigation .nav-item *{
+        margin: 0;
+        font-size: 20px;
+    }
+
+    #profile img{
+        margin-right: 0;
+        width: 22px;
+        height: 22px;
+    }
+
+}
+
+@media(min-width: 400px){
+
+    #navigation .nav-item:hover{
+        background-color: var(--primary-color-hover);
+        cursor: pointer;
+    }
+
+}

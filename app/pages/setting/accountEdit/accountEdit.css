@@ -1,0 +1,239 @@
+.accountEditPage{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('https://www.hdwallpapers.org/uploads/converted/24/01/29/1540086078-Straight_Road_Horizon_Mountains-oZz-1920x1080-MM-90.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#logo_{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.89);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--primary-color);
+    border-radius: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.219);
+}
+#logo_ img{
+    width: 50px;
+    height: 80%;
+}
+.accountEditPage .fa-arrow-left{
+    position: fixed;
+    top: 0;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--logo-bar-height);
+
+}
+
+.accountEditPage .cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20em;
+    height: auto;
+    backdrop-filter: blur(10px);
+    border: 2px solid white;
+    padding: 25px;
+    position: relative;
+    margin: 100px 0;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.233);
+
+}
+.accountEditPage .cart *{
+    margin-top: 10px;
+}
+.accountEditPage .cart h2{
+    font-size: 20px;
+    color: var(--darkest-primary-color);
+    margin-bottom: 10px;
+}
+.accountEditPage .cart input{
+    width: 100%;
+    outline: none;
+    padding: 7px 10px;
+    border: 1px solid var(--darkest-primary-color);
+    border-radius: 50px;
+}
+.accountEditPage .cart button{
+    width: 100%;
+    outline: none;
+    padding: 7px 10px;
+    border: 1px solid var(--darkest-primary-color);
+    border-radius: 50px;
+    background-color: var(--primary-color);
+    color: white;
+}
+.accountEditPage .cart button:hover{
+    background-color: var(--primary-color-hover);
+}
+.accountEditPage .cart .alert{
+    color: aliceblue;
+    font-size: 10px;
+}
+
+.accountEditPage .phoCover{
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(158, 158, 158);
+}
+
+.accountEditPage .phoProfile{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.accountEditPage #inputDiscription{
+    overflow: hidden;
+    width: 100%;
+    outline: none;
+    padding: 7px 10px;
+    border: 1px solid var(--darkest-primary-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+
+.accountEditPage .input-container{
+    width: 100%;
+    margin: 0.5em;
+    padding: 0;
+    position: relative;
+}
+.accountEditPage .input-container input{
+    width: 100%;
+    height: 3.5em;
+    border: none;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 0.8em;
+    color: white;
+    margin: 0;
+}
+.accountEditPage .input-container input::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+.accountEditPage .input-container input:focus{
+    outline: none;
+}
+
+/* .password-i {
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    right: 1em;
+    background-color: blue;
+} */
+
+.password-i {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    top: -50%;
+    transform: translateY(20%);
+    right: 15px;
+    padding: 0;
+    margin: 0;
+}
+.password-i i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    padding: 0;
+    color: white;
+}
+.password-i .fa-eye:hover{
+    color: white;
+    background-color:  rgba(1, 56, 63, 0.596);
+}
+
+
+
+
+
+.verifyBanner{
+    width: 100%;
+    margin-top: var(--logo-bar-height);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(29, 29, 29, 0.233);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.verifyBanner .container{
+    width: 15em;
+    padding: 40px 20px 20px 20px;
+    background-color: white;
+    box-shadow: 0 5px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.verifyBanner .container *{
+    margin: 10px 0;
+}
+.verifyBanner .container .cancel{
+    margin: 0;
+}
+.verifyBanner .container #verificationCode{
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+}
+.verifyBanner .container #verificationCode:focus{
+    outline: none;
+}
+.verifyBanner .container .resend{
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 100%;
+    text-align: ltr;
+    text-decoration: underline;
+}
+.verifyBanner .container .submateBTN{
+    padding: 7px 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: white;
+}
+.verifyBanner .container .submateBTN:hover{
+    background-color: white;
+    color:  var(--primary-color);
+}

@@ -1,0 +1,42 @@
+@media(max-width: 500px){
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-item .container{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        width: 60%;
+    }
+
+    #ul{
+        height: 100%;
+    }
+    #ul li{
+        height: auto;
+    }
+
+}
+
+@media(max-height: 500px){
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    #ul{
+        height: 100%;
+    }
+    #ul li{
+        height: auto;
+    }
+
+}

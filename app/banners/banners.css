@@ -1,0 +1,47 @@
+.banner{
+    background-color: rgba(0, 0, 0, 0.473);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .container{
+    width: 90%;
+    background-color: white;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 5px 15px black;
+    padding: 50px 20px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.banner .container .confirmation{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 5px 5px 5px;
+    padding: 0;
+}
+.banner .container .confirmation *{
+    padding: 7px;
+    margin: 5px;  
+    text-align: center;
+}
+.banner .container .confirmation .yes{
+    background-color: var(--primary-color);
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+.banner .container .confirmation .no{
+    background-color: rgb(196, 196, 196);
+    color: white;
+    height: 100%;
+    width: 100%;
+}

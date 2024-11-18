@@ -1,0 +1,227 @@
+#sign-in-page{
+    width: 100%;
+    height: calc(100% - var(--logo-bar-height));
+    margin-top: var(--logo-bar-height);
+    /* background-color: rgba(233, 254, 255, 0.336); */
+    /* backdrop-filter: blur(2px); */
+    /* position: fixed;
+    overflow: scroll;
+    top: 0;
+    left: 0; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.invisible{
+    display: none;
+}
+
+.sign-in-page-active{
+    display: flex;
+}
+.sign-in-page-inactive{
+    display: none;
+}
+
+.container-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20em;
+    height: auto;
+    backdrop-filter: blur(10px);
+    border: 2px solid white;
+    padding: 25px;
+    position: relative;
+    margin: 50px 0;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.247);
+}
+
+.container-cart i{
+    color: white;
+}
+
+.container-cart #cancel{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+.container-cart h2{
+    color: white;
+    margin-bottom: 25px;
+}
+.container-cart .input-container i:not(.fa-lock, .fa-eye, .fa-eye-slash){
+    opacity: 0.8;
+    font-size: 1em;
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+}
+.container-cart .input-container{
+    width: 100%;
+    margin: 0.5em;
+    position: relative;
+}
+.container-cart .input-container input{
+    width: 100%;
+    height: 3.5em;
+    border: none;
+    padding: 1.2em;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 0.8em;
+    color: white;
+}
+.container-cart .input-container #birthDate{
+    outline: none;
+}
+.container-cart .input-container input::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+.container-cart .input-container input:focus{
+    outline: none;
+}
+.container-cart .side-of-matter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    margin-top: 10px;
+    padding: 5px 0;
+    color: white;
+}
+.container-cart .side-of-matter p{
+    cursor: default;
+    margin: 0;
+    padding: 0;
+}
+.container-cart .side-of-matter .p{
+    cursor: pointer;
+}
+.container-cart .side-of-matter .checkbox{
+    display: flex;
+    align-items: center;
+}
+.container-cart .side-of-matter .checkbox input{
+  margin-right: 5px;  
+}
+.container-cart .sign-in-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 3.5em;
+    padding: 1.2em;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: var(--darkest-primary-color);
+    font-weight: 500;
+    border: 1px solid var(--darkest-primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+}
+.container-cart .sign-in-button:hover{
+    background-color: var(--darkest-primary-color);
+    color: white;
+}
+.container-cart .switch{
+    cursor: default;
+    margin-top: 20px;
+    font-size: 0.8em;    
+    color: white;
+}
+.container-cart .switch span{
+    cursor: pointer;
+}
+
+
+
+
+.verifyBanner{
+    width: 100%;
+    margin-top: var(--logo-bar-height);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(29, 29, 29, 0.233);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.verifyBanner .container{
+    width: 15em;
+    padding: 40px 20px 20px 20px;
+    background-color: white;
+    box-shadow: 0 5px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+.verifyBanner .container *{
+    margin: 10px 0;
+}
+.verifyBanner .container .cancel{
+    margin: 0;
+}
+.verifyBanner .container #verificationCode{
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+}
+.verifyBanner .container #verificationCode:focus{
+    outline: none;
+}
+.verifyBanner .container .resend{
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 100%;
+    text-align: ltr;
+    text-decoration: underline;
+}
+.verifyBanner .container .submateBTN{
+    padding: 7px 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: white;
+}
+.verifyBanner .container .submateBTN:hover{
+    background-color: white;
+    color:  var(--primary-color);
+}
+
+
+
+/* 
+@media(max-height: 400px){
+
+    #main-section{
+        position: relative;
+    }
+
+    .sign-in-page-active{
+        display: block;
+    }
+    
+    .container-cart{
+        margin: 30px 0 30px 50%;
+        transform: translateX(-50%);
+    }
+
+} */
+
+

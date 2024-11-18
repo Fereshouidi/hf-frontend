@@ -1,0 +1,285 @@
+#logo_{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--primary-color);
+    border-radius: 0;
+}
+#logo_ img{
+    width: 50px;
+    height: 80%;
+}
+
+
+/* .conversationPage{
+    position: fixed;
+} */
+
+.conversationPage .fa-arrow-left{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.conversationPage .correspondantDataContainer{
+    position: fixed;
+    top: 35px;
+    background-color: transparent;
+    color: white;
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 17px 0;
+    border-radius: 50px;
+}
+.conversationPage .correspondantData .correspondantDataContainer{
+    position: fixed;
+    z-index: 999;
+}
+.conversationPage .correspondantData{
+    position: fixed;
+    z-index: 999;
+    top: 40px;
+    background-color: var(--darkest-primary-color);
+    padding: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 17px 0;
+    border-radius: 50px;
+}
+.conversationPage .phoProfile{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.conversationPage .auto{
+    width: auto;
+}
+
+.conversationPage{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f3f3f3;
+}
+
+.conversationPage .conversationSection{
+    /* margin-top: var(--logo-bar-height); */
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+    height: calc(100% - calc(var(--logo-bar-height)) - var(--input-bar-conversation));
+    overflow-y: scroll;
+    outline: none;
+    position: fixed;
+    bottom: var(--input-bar-conversation);
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.conversationPage .conversationSection #messageDiv:not(.messageDate){
+    position: relative;
+    max-width: 70%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* text-align: center; */
+    padding: 10px;
+    margin: 7px;
+    line-height: 20px;
+    word-break: break-word; 
+    white-space: normal;
+}
+.conversationPage .conversationSection .userMessage .messageDate{
+    position: absolute;
+    right: 0;
+    bottom: -17px;
+    font-size: 7px;
+    opacity: 0.5;
+    white-space: nowrap;
+    color: black;
+}
+.conversationPage .conversationSection .correspondantMessage .messageDate{
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    font-size: 7px;
+    opacity: 0.5;
+    white-space: nowrap;
+    color: black;
+}
+.conversationPage .conversationSection .userMessage{
+    background-color: var(--primary-color);
+    border-radius: 20px 20px 0 20px;
+    align-self: flex-end;
+    color: white;
+}
+.conversationPage .conversationSection img{
+    max-width: 200px;
+    max-height: 200px;
+    /* margin-top: 10px; */
+}
+.conversationPage .conversationSection .correspondantMessage{
+    background-color: rgb(224, 224, 224);
+    border-radius: 20px 20px 20px 0;
+    align-self: flex-start;
+}
+
+
+.conversationPage .conversationSection .fa-arrow-down{
+    position: fixed;
+    bottom: calc(var(--input-bar-conversation)*2);
+    width: 40px;
+    height: 40px;
+    background-color: var(--darkest-primary-color-semiTransparent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.conversationPage .conversationSection .fa-arrow-down:hover{
+    background-color: var(--darkest-primary-color);
+}
+
+
+
+
+.imgShow{
+    bottom: 0;
+    margin-bottom: var(--logo-bar-height);
+    height: calc( 100% - calc(var(--logo-bar-height)*2));
+    width: 100%;
+    position: fixed;
+    object-fit: contain;
+    background-color: var(--darkest-primary-color);
+    padding: 30px 0;
+}
+.imgShow img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 30px;
+    border: 2px solid white;
+}
+.loading i{
+    margin: 5px;
+}
+
+
+
+
+.conversationPage .inputBare{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-height: var(--input-bar-conversation);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 5px 20px;
+}
+
+
+.conversationPage .inputBare *{
+    padding: 7px 0;
+}
+.conversationPage .addFile{
+    height: 100%;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.conversationPage #inputMessage{
+    display: flex;
+    width: 80%;
+    min-height: 40px;
+    max-height: 500px;
+    border-radius: 50px;
+    border: 1px solid var(--primary-color);
+    padding: 0 15px;
+    outline: none;
+    word-wrap: break-word;
+    white-space: normal;
+    padding-top: 12px;
+    /* overflow: scroll; */
+}
+.conversationPage #inputMessage::placeholder{
+    color: var(--darkestprimary-color);
+}
+.conversationPage #inputMessage:focus{
+    height: 70px;
+}
+.conversationPage .sendButton{
+    height: 100%;
+    font-size: 20px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.conversationPage #btnSendClicked{
+    color: var(--darkest-primary-color-semiTransparent);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(min-width: 500px){
+
+    .conversationPage .sendButton:hover{
+        cursor: pointer;
+        color: var(--darkest-primary-color-semiTransparent);
+    }
+
+}

@@ -1,0 +1,219 @@
+
+
+.containerAll{
+    position: relative;
+    background-color: rgb(245, 245, 245);
+    position: fixed;
+    overflow: scroll;
+    width: 100%;
+    height: 100vh;
+}
+.div-photos{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.photo-cover{
+    width: 100%;
+    height: 70%;
+    background-color: rgb(196, 196, 196);
+    position: relative;
+    border-radius: 0;
+    object-fit: cover;
+
+}
+.photo-profile{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(245, 245, 245);
+    width: 125px;
+    height: 125px;
+    border: 2px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.userInformation{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.userInformation *{
+    margin-bottom: 5px;
+}
+.statistic{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.statistic p {
+    color: rgba(71, 71, 71, 0.582);
+    /* opacity: 0.5; */
+    font-weight: 700;
+    padding: 0;
+    margin: 0 20px;
+}
+.statistic p span{
+    color: black;
+    opacity: 0.9;
+    font-weight: 700;
+    margin-right: 5px;
+}
+.joined-at{
+    color: rgba(71, 71, 71, 0.582);
+}
+.joined-at i{
+    margin-right: 5px;
+}
+.userInformation .followed-by{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow-x: scroll; */
+}
+.userInformation .followed-by img{
+    margin: 5px 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(199, 199, 199);
+    object-fit: cover;
+}
+.userInformation .bio{
+    padding: 10px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+@media(max-width: 500px){
+    
+    .userInformation .followed-by{
+        scrollbar-width: none;
+    }
+}
+
+
+
+/* banners */
+
+.phoProfileClickedVisible{
+    visibility: visible;
+}
+.phoProfileClickedVisibleInvisible{
+    opacity: 0;
+    /* visibility: hidden; */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 0;
+}
+.phoProfileClickedVisible{
+    background-color: rgba(244, 250, 255, 0.582);
+    backdrop-filter: blur(2px);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: calc( 100vh - var(--header-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 0;
+    transition: height 0.2s, width 0.2s, opacity 0.2s ease, visibility 0.2s ease;
+}
+.phoProfileClickedVisible i{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.phoProfileClickedVisible .phoProfileClicked{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    object-fit: contain;
+}
+
+
+
+/* banners */
+
+.invisible{
+    margin-top: -70px;
+}
+
+.banner-container{
+    width: 100%;
+    height: calc(100vh - var(--header-height));    margin-top: var(--header-height);
+    background-color: rgba(233, 254, 255, 0.336);
+    backdrop-filter: blur(2px);
+    position: fixed;
+    overflow: scroll;
+    top: -70px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: top 0.7s;
+}
+.banner-container #accountLess-banner{
+    /* margin-top: -70px;
+    transition: 0.7s; */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 15%;
+    padding: 5px 15px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px black;
+    border: 1px solid var(--darkest-primary-color);
+    /* padding-top: 35px; */
+}
+.banner-text{
+
+}
+.banner-container #accountLess-banner h2{
+    font-size: 1em;
+}
+.banner-container #accountLess-banner #sign-in-link{
+    font-size: 1em;
+    color: blue;
+}
+
+
+#sign-in-link{
+    cursor: pointer;
+}
+

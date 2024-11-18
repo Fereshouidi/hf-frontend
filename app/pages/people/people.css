@@ -1,0 +1,207 @@
+/* .people-page-without-active-account{
+    
+} */ 
+
+.headerContent{
+    background-color: rgb(238, 238, 238);
+    position: fixed;
+    z-index: 999;
+    top: var(--header-height);
+    width: 100%;
+    padding-top: 3px;
+
+}
+
+.people-page .header{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: calc(var(--header-height)/2);
+    padding: 20px;
+    /* margin-bottom: 5px; */
+    /* padding-top: 5px; */
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+}
+.header-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    font-size: 15px;
+    width: 30%;
+    margin: 3%;
+    background-color: rgb(228, 228, 228);
+}
+.header-item {
+    cursor: pointer;
+    padding: 20px;
+    font-size: 13px;
+}
+
+.header-item.active {
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+.people-page section{
+    width: 100%;
+    min-height: calc(100vh - calc(var(--header-height)*1.5));
+    margin-top: calc(var(--header-height)/2);
+    background-color: rgb(230, 230, 230);
+    padding-top: 0px;
+}   
+.people-page section br{
+    font-size: 1px;
+}
+.people-page section .activeSectionName{
+    position: fixed;
+    /* padding: 10px; */
+    padding: 0;
+    opacity: 0.5;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.itemUser{
+    padding: 2px;
+    margin: 2px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    padding: 10px;
+}
+.itemUser:hover{
+    background-color: rgb(248, 248, 248);
+}
+.itemUser .userName{
+    font-size: 15px;
+    margin-top: 5px;
+}
+.userPhoProfile{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+}
+.receiverData, .senderData, .friendData{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+    text-align: start;
+    /* width: 100%; */
+    width: calc(100% - 100px);
+    height: 100%;
+    margin-left: 5px;
+    padding: 7px 0;
+    padding-top: 25px;
+    padding-left: 5px;
+    position: absolute;
+    left: 100px;
+    /* margin: 0;
+    padding: 0; */
+}
+.receiverData, .senderData, .friendData *{
+    font-size: 17px;
+    margin: 5px 0;
+    font-size: 20px;
+}
+.receiverData .accepting{
+    position: absolute;
+    bottom: 15px;
+}
+.receiverData .accepting *{
+    padding: 8px 15px;
+    margin: 0 2px;
+}
+.receiverData .accepting .accept-btn{
+    background-color: var(--primary-color);
+    color: white;
+}
+.receiverData .accepting .refuse-btn{
+    background-color: rgb(230, 230, 230);
+    
+}
+.dateOfSend{
+    /* width: 50px; */
+    /* text-align: center; */
+    line-height: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0.3;
+    position: absolute;
+    bottom: 20px;
+}
+.itemUserReceive .dateOfSend{
+    /* background-color: red; */
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 10px;
+    text-align: center;
+}
+
+
+.condition{
+    opacity: 0.5;
+    /* color: orange; */
+}
+.conditionPending{
+    color: orange;
+    opacity: 0.3;
+}
+.conditionAccept{
+    color: green;
+}
+.conditionRejected{
+    color: red;
+}
+
+.dealing{
+    position: absolute;
+    right: 0;
+}
+.chat{
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 12px;
+    padding: 8px 12px;
+    margin-right: 5px;
+}
+.chat:hover{
+    color: white;
+    background-color: var(--primary-color);
+}
+.block{
+    border: 1px solid red;
+    color: red;
+    font-size: 12px;
+    padding: 8px 12px;
+    margin-right: 5px;
+}
+.block:hover{
+    color: white;
+    background-color: red;
+}
+
+
+
+
+
+
+
+
