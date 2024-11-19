@@ -15,7 +15,7 @@ type ProfilePeoplePageProps = {
   setVisibility: (visibility: boolean) => void;
 };
 
-const ProfilePeoplePage: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
+const ProfilePeoplePage_: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
   return (
 
   let userData = JSON.parse(localStorage.getItem('userData'));
