@@ -2,7 +2,7 @@
 //import { pages } from "next/dist/build/templates/app-page";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import Sign_in from "../register/sign-in/page";
+import Sign_in from "../register/sign-in/signin";
 import Login from "../register/login/login";
 import LoginBanner from './banners/loginBanner/loginBanner';
 import AccountLess from "./banners/loginBanner/accountLess";
