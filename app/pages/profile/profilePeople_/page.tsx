@@ -18,7 +18,7 @@ type ProfilePeoplePageProps = {
 const ProfilePeoplePage_: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
   return (
 
-  let userData = JSON.parse(localStorage.getItem('userData'));
+  const userData = JSON.parse(localStorage.getItem('userData'));
   let userProfileClicked_ = JSON.parse(localStorage.getItem('userProfileClicked_'))
   const phoProfileLess = localStorage.getItem('phoProfileLess');
   const phoCoverLess = localStorage.getItem('phoCoverLess');
