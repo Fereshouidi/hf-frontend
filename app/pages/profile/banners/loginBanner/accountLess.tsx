@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import Login from "../../../register/login/page";
-import Sign_in from "../../../register/sign-in/page";
+import Login from "../../../register/login/login";
+import Sign_in from "../../../register/sign-in/signin";
 
 const AccountLess = (props) => {
 
