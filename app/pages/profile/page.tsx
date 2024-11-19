@@ -12,7 +12,11 @@ import {calculateTime, calcCreatedAt} from "../../calcTime";
 import ProfilePeaple from "../profilePeaple/page";
 
 
-function Profile({setActivePage}) {
+type PageProps = {
+  setActivePage: any;
+};
+
+const ProfilePage: React.FC<PageProps> = ({ setActivePage }) => {
 
   let userData = null;
   try{
