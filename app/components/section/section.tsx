@@ -7,7 +7,7 @@ import Chats from '../../pages/chats/page';
 import Search from '../../pages/search/page';
 import './section.css';
 import './section-media.css';
-import Sign_in from '../../pages/register/sign-in/page';
+import Sign_in from '../../pages/register/sign-in/signin';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import ProfilePeaple from '../../pages/profilePeaple/page';
 
