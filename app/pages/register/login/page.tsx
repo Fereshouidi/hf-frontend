@@ -19,7 +19,7 @@ type Sign_inParams = {
 };
 
 // تعريف المكون باستخدام React.FC
-const Login: React.FC<Sign_inParams> = ({ loginPage, setLoginPage, singInPage, setSingInPage }) => {
+const Login = ({ loginPage, setLoginPage, singInPage, setSingInPage }: Sign_inParams) => {
   
     const navigate = useNavigate();
 
