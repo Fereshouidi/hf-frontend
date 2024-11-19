@@ -20,8 +20,6 @@ type ProfilePeoplePageProps = {
 };
 
 const ProfilePeoplePage: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
-  return (
-
 
   //alert(  JSON.parse(localStorage.getItem('userProfileClicked')))
   const [usersProfileClicked, setUsersProfileClicked] = useState([]);
