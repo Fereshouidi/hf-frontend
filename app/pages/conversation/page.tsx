@@ -18,7 +18,7 @@ const Conversation = () => {
   // أضف الخصائص الأخرى إذا كانت موجودة
 };
 
-    const [correspondantData, setCorrespondantData] = useState<UserData | null>(null);
+    //const [correspondantData, setCorrespondantData] = useState<UserData | null>(null);
 
     const userData = localStorage.getItem('userData') != undefined? JSON.parse(localStorage.getItem('userData')): null;
     const ActiveConversation = JSON.parse(localStorage.getItem("conversation"));
