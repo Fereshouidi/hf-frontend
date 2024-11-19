@@ -17,8 +17,10 @@ type Sign_inParams = {
   singInPage: boolean;
   setSingInPage: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const Login: React.FC<Sign_inParams> = ({ loginPage, setLoginPage, singInPage, setSingInPage }) => {
 
+// تعريف المكون باستخدام React.FC
+const Login: React.FC<Sign_inParams> = ({ loginPage, setLoginPage, singInPage, setSingInPage }) => {
+  
     const navigate = useNavigate();
 
     const [isUserDataExist, setIsUserDataExist] = useState(false);
