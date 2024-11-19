@@ -17,7 +17,7 @@ type Sign_inParams = {
   singInPage: boolean;
   setSingInPage: React.Dispatch<React.SetStateAction<boolean>>;
 };
-function Login(props:Sign_inParams){
+const Login: React.FC<Sign_inParams> = ({ loginPage, setLoginPage, singInPage, setSingInPage }) => {
 
     const navigate = useNavigate();
 
