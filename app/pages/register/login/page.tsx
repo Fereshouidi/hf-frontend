@@ -18,8 +18,7 @@ type Sign_inParams = {
   setSingInPage: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-// تعريف المكون باستخدام React.FC
-const Login: React.FC<Sign_inParams> = ({ loginPage, setLoginPage, singInPage, setSingInPage }) => {
+function Login(props:Sign_inParams){  
   
     const navigate = useNavigate();
 
