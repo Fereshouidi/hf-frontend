@@ -12,11 +12,11 @@ import {getUserBy_Email_Password} from '../../../crud.mjs';
 import { useNavigate } from "react-router-dom";
 
 type Sign_inParams = {
-    loginPage: boolean,
-    setLoginPage: Function
-    singInPage: boolean,
-    setSingInPage: Function
-}
+  loginPage: boolean;
+  setLoginPage: React.Dispatch<React.SetStateAction<boolean>>;
+  singInPage: boolean;
+  setSingInPage: React.Dispatch<React.SetStateAction<boolean>>;
+};
 function Login(props:Sign_inParams){
 
     const navigate = useNavigate();
