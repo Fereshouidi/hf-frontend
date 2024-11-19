@@ -2,8 +2,8 @@
 //import { pages } from "next/dist/build/templates/app-page";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
-import Sign_in from "../../register/sign-in/page";
-import Login from "../../register/login/page";
+import Sign_in from "../../register/sign-in/signin";
+import Login from "../../register/login/login";
 import '../../profile/profile.css';
 import './profilePeople.css';
 import {addUser, getAllUsers, addInvitation, getInvitationBySender, getInvitation, deleteFriend, addConversation, addLike, getIsLiked, getPopularestFriends} from '../../../crud.mjs';
