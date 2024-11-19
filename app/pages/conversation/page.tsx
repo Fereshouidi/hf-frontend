@@ -13,6 +13,13 @@ const socket = io('http://192.168.1.103:3002');
 
 const Conversation = () => {
 
+    type UserData = {
+  _id: string;
+  // أضف الخصائص الأخرى إذا كانت موجودة
+};
+
+    const [correspondantData, setCorrespondantData] = useState<UserData | null>(null);
+
     const userData = localStorage.getItem('userData') != undefined? JSON.parse(localStorage.getItem('userData')): null;
     const ActiveConversation = JSON.parse(localStorage.getItem("conversation"));
     const phoProfileLess = localStorage.getItem('phoProfileLess');
