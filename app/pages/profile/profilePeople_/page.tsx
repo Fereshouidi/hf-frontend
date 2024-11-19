@@ -10,7 +10,13 @@ import {addUser, getAllUsers, addInvitation, getInvitationBySender, getInvitatio
 import Conversation from "../../conversation/page";
 
 
-function ProfilePeaple_({ visibility, setVisibility}) {
+type ProfilePeoplePageProps = {
+  visibility: boolean;
+  setVisibility: (visibility: boolean) => void;
+};
+
+const ProfilePeoplePage: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
+  return (
 
   let userData = JSON.parse(localStorage.getItem('userData'));
   let userProfileClicked_ = JSON.parse(localStorage.getItem('userProfileClicked_'))
