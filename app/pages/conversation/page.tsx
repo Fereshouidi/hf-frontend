@@ -173,10 +173,11 @@ const Conversation = () => {
                             dir='auto'
                             className={
                                 message.senderId === userData._id
-                                    ? 'userMessage'
-                                    : correspondantData && message.senderId === correspondantData._id
-                                    ? 'correspondantMessage'
-                                    : 'userMessage'
+                                ? 'userMessage'
+                                : correspondantData && correspondantData._id && message.senderId === correspondantData._id
+                                ? 'correspondantMessage'
+                                : 'userMessage'
+
                             }
                         >
 
