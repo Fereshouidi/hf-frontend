@@ -10,7 +10,7 @@ type ProfilePeoplePageProps = {
   setVisibility: (visibility: boolean) => void;
 };
 
-const ProfilePeoplePage_: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
+const ProfilePeoplePage = ({ visibility, setVisibility }: ProfilePeoplePageProps) => {
 
   let userData = localStorage.getItem('userData') ? localStorage.getItem('userData') : null;
   const userProfileClicked_ = localStorage.getItem('userProfileClicked_') ? JSON.parse(localStorage.getItem('userProfileClicked_')!) : null;
@@ -160,4 +160,5 @@ const ProfilePeoplePage_: React.FC<ProfilePeoplePageProps> = ({ visibility, setV
   );
 };
 
-export default ProfilePeoplePage_;
+export default ProfilePeoplePage;
+
