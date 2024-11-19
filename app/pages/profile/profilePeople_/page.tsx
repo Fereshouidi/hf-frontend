@@ -5,12 +5,12 @@ import '../../profile/profile.css';
 import './profilePeople.css';
 import { addInvitation, getInvitation, deleteFriend, addConversation, addLike, getIsLiked, getPopularestFriends } from '../../../crud.mjs';
 
-type ProfilePeoplePageProps = {
+interface ProfilePeoplePageProps {
   visibility: boolean;
   setVisibility: (visibility: boolean) => void;
-};
+}
 
-const ProfilePeoplePage = ({ visibility, setVisibility }: ProfilePeoplePageProps) => {
+const ProfilePeoplePage: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
 
   let userData = localStorage.getItem('userData') ? localStorage.getItem('userData') : null;
   const userProfileClicked_ = localStorage.getItem('userProfileClicked_') ? JSON.parse(localStorage.getItem('userProfileClicked_')!) : null;
@@ -161,5 +161,4 @@ const ProfilePeoplePage = ({ visibility, setVisibility }: ProfilePeoplePageProps
 };
 
 export default ProfilePeoplePage;
-
 
