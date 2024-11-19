@@ -50,7 +50,7 @@ const Header = ({ logo, setActivePage, setActivePageLogo },props) => {
   const searchRef = useRef();
   const [userSearch, setUserSearch] = useState('');
   const handleSearch = () => {
-    setUserSearch(searchRef.current.value);
+    searchRef? setUserSearch(searchRef.current.value): setUserSearch(null);
   }
   const [userFound, setUserFound] = useState([]);
   
