@@ -14,7 +14,13 @@ import { addRelation, getRelation , getUserById} from "../../crud.mjs";
 import {effect_dealingWithUser} from "../../clickEffect";
 import UnblockBanner from "../../banners/unblockBanner";
 
-function ProfilePeaple({ visibility, setVisibility, top}) {
+type ProfilePeoplePageProps = {
+  visibility: boolean;
+  setVisibility: (visibility: boolean) => void;
+};
+
+const ProfilePeoplePage: React.FC<ProfilePeoplePageProps> = ({ visibility, setVisibility }) => {
+  return (
 
 
   //alert(  JSON.parse(localStorage.getItem('userProfileClicked')))
