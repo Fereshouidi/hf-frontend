@@ -5,70 +5,74 @@ import logoJPG from '../../images/logo.jpg';
 import { useEffect, useRef, useState } from 'react';
 import { getUserById, addMessage, getMessagesByConversationId, setVue, getRelation } from '../../crud.mjs';
 import io from "socket.io-client";
-import calculateTimeDifference, { calculateTime } from '../../calcTime';
+import calculateTime from '../../calcTime';
 import ProfilePeaple from '../profilePeaple/page';
 import '../profilePeaple/profilePeople.css';
 
 const socket = io('http://192.168.1.103:3002');
 
-const Conversation = () => {
-
-    type UserData = {
-  _id: string;
-  // أضف الخصائص الأخرى إذا كانت موجودة
+type UserData = {
+    _id: string;
+    userName: string;
+    phoProfile?: string;
+    // أضف الخصائص الأخرى إذا كانت موجودة
 };
 
-    //const [correspondantData, setCorrespondantData] = useState<UserData | null>(null);
+type MessageData = {
+    _id: string;
+    senderId: string;
+    message?: string;
+    image?: string;
+    createdAt: string;
+};
 
-    const userData = localStorage.getItem('userData') != undefined? JSON.parse(localStorage.getItem('userData')): null;
+const Conversation = () => {
+    const userData = localStorage.getItem('userData') != undefined ? JSON.parse(localStorage.getItem('userData')) : null;
     const ActiveConversation = JSON.parse(localStorage.getItem("conversation"));
     const phoProfileLess = localStorage.getItem('phoProfileLess');
-    const phoCoverLess = localStorage.getItem('phoCoverLess');
 
-    const [correspondantData, setCorrespondantData] = useState();
-    const [relation, setRelation] = useState({});
-    const [conversationMessages, setConversationMessages] = useState([]);
+    const [correspondantData, setCorrespondantData] = useState<UserData | null>(null);
+    const [relation, setRelation] = useState<{ condition?: string }>({});
+    const [conversationMessages, setConversationMessages] = useState<MessageData[]>([]);
     const [messageInput, setMessageInput] = useState('');
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFile, setSelectedFile] = useState<{ file: File; imageUrl: string } | null>(null);
     const [isClicked, setIsClicked] = useState(false);
-    const [isAtBottom, setIsAtBottom] = useState(true); // البداية على افتراض أن المستخدم في الأسفل
+    const [isAtBottom, setIsAtBottom] = useState(true);
     const [loadingSendImg, setLoadingSendImg] = useState(false);
-    const chatContainerRef = useRef(null);
+    const chatContainerRef = useRef<HTMLDivElement | null>(null);
     const [profilePeapleVisible_, setProfilePeapleVisible_] = useState(false);
 
-
-
     const handlePhoProfileClicked = () => {
-        let list = [];
-        list.push(correspondantData);
-        localStorage.setItem('userProfileClicked', JSON.stringify(list))
-        localStorage.setItem("activePage", 'profilePeaple');
-        setProfilePeapleVisible_(true)
-      }
-      
+        if (correspondantData) {
+            localStorage.setItem('userProfileClicked', JSON.stringify([correspondantData]));
+            localStorage.setItem("activePage", 'profilePeaple');
+            setProfilePeapleVisible_(true);
+        }
+    };
 
     const handleCorrespondantData = async () => {
         const messages = await getMessagesByConversationId(ActiveConversation._id);
         setConversationMessages(messages);
-        console.log(ActiveConversation._id, userData._id);
-        console.log(await setVue(ActiveConversation._id, userData._id));
-        for (let i = 0; i < ActiveConversation.participants.length; i++) {
-            if (ActiveConversation.participants[i] !== userData._id) {
-                const correspondant = await getUserById(ActiveConversation.participants[i]);
+
+        if (userData) {
+            await setVue(ActiveConversation._id, userData._id);
+        }
+
+        for (const participantId of ActiveConversation.participants) {
+            if (participantId !== userData?._id) {
+                const correspondant = await getUserById(participantId);
                 setCorrespondantData(correspondant);
-                const relation = await getRelation(userData._id, correspondant._id)
-                setRelation(relation.relation);
+                const relationData = await getRelation(userData._id, correspondant._id);
+                setRelation(relationData.relation);
             }
         }
-        
     };
 
     useEffect(() => {
         handleCorrespondantData();
 
         socket.off('receiveMessage');
-
-        socket.on('receiveMessage', (message) => {
+        socket.on('receiveMessage', (message: MessageData) => {
             setConversationMessages((prevMessages) => {
                 if (!prevMessages.some(msg => msg._id === message._id)) {
                     return [...prevMessages, message];
@@ -82,12 +86,12 @@ const Conversation = () => {
         };
     }, []);
 
-    const handleMessageInput = (event) => {
+    const handleMessageInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessageInput(event.target.value);
     };
 
-    const handleImageSelected = (event) => {
-        const file = event.target.files[0];
+    const handleImageSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
         if (file) {
             const imageUrl = URL.createObjectURL(file);
             setSelectedFile({ file, imageUrl });
@@ -107,11 +111,7 @@ const Conversation = () => {
             try {
                 const messageData = await addMessage(ActiveConversation._id, userData._id, messageInput, selectedFile?.file);
                 socket.emit('sendMessage', messageData);
-                if(conversationMessages){
-                    setConversationMessages((prevMessages) => [...prevMessages, messageData]);
-                }else{
-                    setConversationMessages([messageData]);
-                }
+                setConversationMessages((prevMessages) => [...prevMessages, messageData]);
                 setMessageInput('');
                 setSelectedFile(null);
                 scrollToBottom();
@@ -125,157 +125,136 @@ const Conversation = () => {
     };
 
     const scrollToBottom = () => {
-        if (chatContainerRef.current) {
-            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-        }
+        chatContainerRef.current?.scrollTo({
+            top: chatContainerRef.current.scrollHeight,
+            behavior: 'smooth',
+        });
     };
 
     useEffect(() => {
         const handleScroll = () => {
             if (chatContainerRef.current) {
                 const { scrollTop, scrollHeight, clientHeight } = chatContainerRef.current;
-                setIsAtBottom(scrollHeight - scrollTop <= clientHeight + 1); // دقة أعلى للتحقق من القاع
+                setIsAtBottom(scrollHeight - scrollTop <= clientHeight + 1);
             }
         };
 
-        const chatContainer = chatContainerRef.current;
-        chatContainer.addEventListener('scroll', handleScroll);
-
-        return () => {
-            chatContainer.removeEventListener('scroll', handleScroll);
-        };
+        chatContainerRef.current?.addEventListener('scroll', handleScroll);
+        return () => chatContainerRef.current?.removeEventListener('scroll', handleScroll);
     }, []);
-
-    const showImageSelected = (imageUrl) => {
-        setSelectedFile({imageUrl});
-        console.log(selectedFile)
-    }
-
-
 
     return (
         <>
-        <div className='conversationPage'>
-            <div id='logo_'>
-                <a href={"/"}><i className='fas fa-arrow-left'></i></a>
-                <img src={logoJPG.src} alt="Logo" />
-            </div>
+            <div className='conversationPage'>
+                <div id='logo_'>
+                    <a href={"/"}><i className='fas fa-arrow-left'></i></a>
+                    <img src={logoJPG.src} alt="Logo" />
+                </div>
 
-            <div className='conversationSection' ref={chatContainerRef}>
-               
-
-
-                {conversationMessages && conversationMessages.length !== 0 && conversationMessages.map((message) => (
-                    
+                <div className='conversationSection' ref={chatContainerRef}>
+                    {conversationMessages.map((message) => (
                         <div
                             key={message._id}
                             id={'messageDiv'}
                             dir='auto'
                             className={
                                 message.senderId === userData._id
-                                ? 'userMessage'
-                                : correspondantData && correspondantData._id && message.senderId === correspondantData._id
-                                ? 'correspondantMessage'
-                                : 'userMessage'
-
+                                    ? 'userMessage'
+                                    : correspondantData && correspondantData._id === message.senderId
+                                    ? 'correspondantMessage'
+                                    : 'userMessage'
                             }
                         >
-
-                            <p>{message.message ? message.message : null}</p>
+                            <p>{message.message}</p>
                             {message.image && (
-                                <img onClick={() => {showImageSelected (message.image)}}
-                                    src={message.image} 
+                                <img
+                                    onClick={() => setSelectedFile({ file: null, imageUrl: message.image })}
+                                    src={message.image}
                                     alt="Message attachment"
-                                    style={message.message? {marginTop: '10px'}: null} 
+                                    style={message.message ? { marginTop: '10px' } : undefined}
                                 />
                             )}
+                            <span className='messageDate'>
+                                {message.createdAt ? calculateTime(message.createdAt) : null}
+                            </span>
+                        </div>
+                    ))}
 
-                        <span className='messageDate'>
-                            {message.createdAt ? calculateTime(message.createdAt) : null}
+                    <div className='correspondantDataContainer'>
+                        <span onClick={handlePhoProfileClicked} className='correspondantData'>
+                            <img
+                                className='phoProfile'
+                                src={correspondantData?.phoProfile || phoProfileLess}
+                                alt='Correspondant'
+                            />
+                            <span className='name'>
+                                {correspondantData?.userName || 'Loading...'}
+                            </span>
                         </span>
                     </div>
-                ))}
 
+                    <i
+                        className={isAtBottom ? 'invisible' : 'fas fa-arrow-down'}
+                        onClick={scrollToBottom}
+                    ></i>
+                </div>
 
-                <div className='correspondantDataContainer'>
-                    <span onClick={handlePhoProfileClicked} className='correspondantData'>
-                        <img
-                            className='phoProfile'
-                            src= {correspondantData? correspondantData.phoProfile: phoProfileLess}
-                            alt='Correspondant'
-                        />
-                        <span className='name'>
-                            {correspondantData ? correspondantData.userName : 'Loading...'}
-                        </span>
+                <div className={selectedFile ? 'imgShow' : 'invisible'}>
+                    <i
+                        className='fas fa-times cancel'
+                        onClick={() => setSelectedFile(null)}
+                    ></i>
+                    <img
+                        src={selectedFile?.imageUrl || ''}
+                        alt="Selected"
+                    />
+                    <span className={loadingSendImg ? 'loading' : 'invisible'}>
+                        <i className='fas fa-spinner'></i>
+                        loading
                     </span>
                 </div>
 
-                <i
-                    className={isAtBottom ? 'invisible' : 'fas fa-arrow-down'}
-                    onClick={scrollToBottom}
-                ></i>
+                <div className='inputBare'>
+                    {relation.condition !== 'block' ? (
+                        <>
+                            <input
+                                type="file"
+                                id="fileInput"
+                                accept="image/*"
+                                style={{ display: "none" }}
+                                onChange={handleImageSelected}
+                            />
+                            <label htmlFor="fileInput">
+                                <i className="fas fa-image addFile" />
+                            </label>
+                            <textarea
+                                id='inputMessage'
+                                value={messageInput}
+                                onChange={handleMessageInput}
+                                placeholder='Message ...'
+                            />
+                            <i
+                                id={isClicked ? 'btnSendClicked' : 'btnSend'}
+                                className="fas fa-paper-plane sendButton"
+                                onClick={sendMessage}
+                            ></i>
+                        </>
+                    ) : (
+                        <p>you can't send any message to {correspondantData?.userName}</p>
+                    )}
+                </div>
             </div>
 
-            <div className={selectedFile ? 'imgShow' : 'invisible'}>
-                <i
-                    className='fas fa-times cancel'
-                    onClick={() => setSelectedFile(null)}
-                ></i>
-                <img
-                    src={selectedFile ? selectedFile.imageUrl : null}
-                    alt="Selected"
-                />
-                <span className={loadingSendImg? 'loading': 'invisible' } >
-                    <i className={'fas fa-spinner' } ></i>
-                    loading
-                </span>
-                
-            </div>
-
-            <div className='inputBare'>
-                {relation.condition != 'block'? 
-                <>
-                <input
-                    type="file"
-                    id="fileInput"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onChange={handleImageSelected}
-                />
-                <label htmlFor="fileInput">
-                    <i className="fas fa-image addFile" />
-                </label>
-                <textarea
-                    id='inputMessage'
-                    value={messageInput}
-                    onChange={handleMessageInput}
-                    placeholder='Message ...'
-                />
-                <i
-                    id={isClicked ? 'btnSendClicked' : 'btnSend'}
-                    className="fas fa-paper-plane sendButton"
-                    onClick={sendMessage}
-                ></i>
-                </>
-                : 
-                <p>you can't send any message to {correspondantData.userName}</p>}
-            </div>
-
-        </div>
-    
-    
-        <ProfilePeaple 
-            visibility={profilePeapleVisible_}
-            setVisibility={setProfilePeapleVisible_}
-            top='var(--logo-bar-height)'
-        />
-
-    </>
+            <ProfilePeaple
+                visibility={profilePeapleVisible_}
+                setVisibility={setProfilePeapleVisible_}
+                top='var(--logo-bar-height)'
+            />
+        </>
     );
 };
 
 export default Conversation;
-
 
 
 
